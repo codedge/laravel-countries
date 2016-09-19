@@ -18,7 +18,9 @@ Edit `bootstrap/app.php` and add the Service Provider `[1]`
 |--------------------------------------------------------------------------
 |
 ...    
-   
+
+*/
+
 $app->register(Codedge\Countries\CountriesServiceProvider::class); // [1]
 ``` 
 
