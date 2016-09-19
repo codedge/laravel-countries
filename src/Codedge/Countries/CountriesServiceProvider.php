@@ -26,7 +26,7 @@ class CountriesServiceProvider extends ServiceProvider
     public function boot()
     {
         // The publication files to publish
-        $this->publishes([__DIR__ . '/../../config/config.php' => $this->app->basePath() . '/countries.php']);
+        $this->publishes([__DIR__ . '/../../config/config.php' => $this->app->basePath() . '/config/countries.php']);
 
         // Append the country settings
         $this->mergeConfigFrom(
