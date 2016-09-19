@@ -6,9 +6,9 @@ Lumen Countries is a bundle for Lumen, providing ISO 3166_2, 3166_3, currency, c
 
 ## Installation
 
-Add `webpatser/laravel-countries` to `composer.json`.
+Add `codedge/lumen-countries` to `composer.json`.
 
-    "webpatser/laravel-countries": "dev-master"
+    "codedge/lumen-countries": "dev-master"
     
 Run `composer update` to pull down the latest version of Country List.
 

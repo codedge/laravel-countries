@@ -1,5 +1,5 @@
 <?php 
-namespace Webpatser\Countries;
+namespace Codedge\Countries;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -23,8 +23,6 @@ class MigrationCommand extends Command {
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -83,8 +81,7 @@ class MigrationCommand extends Command {
 
     /**
      * Create the migration
-     *
-     * @param  string $name
+
      * @return bool
      */
     protected function createMigration()
