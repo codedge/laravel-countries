@@ -5,9 +5,9 @@ namespace Codedge\Countries;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * CountryListServiceProvider
- *
- */ 
+ * CountryListServiceProvider.
+ */
+
 
 class CountriesServiceProvider extends ServiceProvider
 {
@@ -19,21 +19,21 @@ class CountriesServiceProvider extends ServiceProvider
     protected $defer = false;
 
     /**
-    * Bootstrap the application.
-    *
-    * @return void
-    */
+     * Bootstrap the application.
+     *
+     * @return void
+     */
     public function boot()
     {
         // The publication files to publish
-        $this->publishes([__DIR__ . '/../../config/config.php' => $this->app->basePath() . '/config/countries.php']);
+        $this->publishes([__DIR__.'/../../config/config.php' => $this->app->basePath().'/config/countries.php']);
 
         // Append the country settings
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/config.php', 'countries'
+            __DIR__.'/../../config/config.php', 'countries'
         );
     }
-        
+
     /**
      * Register everything.
      *
@@ -52,8 +52,7 @@ class CountriesServiceProvider extends ServiceProvider
      */
     public function registerCountries()
     {
-        $this->app->bind('countries', function($app)
-        {
+        $this->app->bind('countries', function ($app) {
             return new Countries();
         });
     }
@@ -65,8 +64,7 @@ class CountriesServiceProvider extends ServiceProvider
      */
     protected function registerCommands()
     {
-        $this->app['command.countries.migration'] = $this->app->share(function($app)
-        {
+        $this->app['command.countries.migration'] = $this->app->share(function ($app) {
             return new MigrationCommand($app);
         });
 
@@ -80,6 +78,6 @@ class CountriesServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('countries');
+        return ['countries'];
     }
 }
