@@ -32,6 +32,20 @@ $app->withFacades();
 class_alias(Codedge\Countries\CountriesFacade::class, 'Countries'); // [2]
 ```
 
+Also register the `vendor:publish` command in your `app/Console/Kernel.php`
+
+```php
+/**
+ * The Artisan commands provided by your application.
+ *
+ * @var array
+ */
+protected $commands = [
+    // ...
+    BasicIT\LumenVendorPublish\VendorPublishCommand::class
+];
+```
+
 
 ## Model
 
