@@ -1,5 +1,11 @@
 # Lumen Countries
 
+[![StyleCI](https://styleci.io/repos/68582372/shield)](https://styleci.io/repos/68582372)
+[![Latest Stable Version](https://poser.pugx.org/codedge/lumen-countries/v/stable?format=flat-square)](https://packagist.org/packages/codedge/lumen-countries)
+[![Total Downloads](https://poser.pugx.org/codedge/lumen-countries/downloads?format=flat-square)](https://packagist.org/packages/codedge/lumen-countries)
+[![License](https://poser.pugx.org/codedge/lumen-countries/license?format=flat-square)](https://packagist.org/packages/codedge/lumen-countries)
+
+
 Lumen Countries is a bundle for Lumen, providing ISO 3166_2, 3166_3, currency, capital and more for all countries. It is based on Laravel-Countries made by [webpatser](https://github.com/webpatser/laravel-countries) (Christoph Kempen).
 
 ## Installation
