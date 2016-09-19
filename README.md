@@ -2,28 +2,34 @@
 
 Lumen Countries is a bundle for Lumen, providing ISO 3166_2, 3166_3, currency, capital and more for all countries. It is based on Laravel-Countries made by [webpatser](https://github.com/webpatser/laravel-countries) (Christoph Kempen).
 
-**Please note that version 1.4 is Laravel 5 only, older versions of Laravel should use version 1.3.4 instead**
-
 ## Installation
 
-Add `codedge/lumen-countries` to `composer.json`.
+Install the package running:  
+```php
+$ composer require codedge/lumen-countries
+```
 
-    "codedge/lumen-countries": "dev-master"
-    
-Run `composer update` to pull down the latest version of Country List.
+Edit `bootstrap/app.php` and add the Service Provider `[1]` 
 
-Edit `app/config/app.php` and add the `provider` and `filter`
+```php
+/*
+|--------------------------------------------------------------------------
+| Register Service Providers
+|--------------------------------------------------------------------------
+|
+...    
+   
+$app->register(Codedge\Countries\CountriesServiceProvider::class); // [1]
+``` 
 
-    'providers' => [
-        'Webpatser\Countries\CountriesServiceProvider',
-    ]
+and Facade/Alias `[2]`
 
-Now add the alias.
+```php
+$app->withFacades();
 
-    'aliases' => [
-        'Countries' => 'Webpatser\Countries\CountriesFacade',
-    ]
-    
+class_alias(Codedge\Countries\CountriesFacade::class, 'Countries'); // [2]
+```
+
 
 ## Model
 
