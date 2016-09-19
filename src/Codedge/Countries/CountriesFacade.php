@@ -5,11 +5,10 @@ namespace Codedge\Countries;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * CountriesFacade
- *
- */ 
-class CountriesFacade extends Facade {
- 
+ * CountriesFacade.
+ */
+class CountriesFacade extends Facade
+{
     /**
      * Get the registered name of the component.
      *

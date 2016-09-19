@@ -5,20 +5,19 @@ namespace Codedge\Countries;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * CountryList
- *
+ * CountryList.
  */
-class Countries extends Model {
-
+class Countries extends Model
+{
     /**
      * @var string
-     * Path to the directory containing countries data.
+     *             Path to the directory containing countries data.
      */
     protected $countries;
 
     /**
      * @var string
-     * The table for the countries in the database, is "countries" by default.
+     *             The table for the countries in the database, is "countries" by default.
      */
     protected $table;
 
@@ -27,7 +26,7 @@ class Countries extends Model {
      */
     public function __construct()
     {
-       $this->table = config('countries.table_name');
+        $this->table = config('countries.table_name');
     }
 
     /**
@@ -38,8 +37,8 @@ class Countries extends Model {
     protected function getCountries()
     {
         //Get the countries from the JSON file
-        if (sizeof($this->countries) == 0){
-            $this->countries = json_decode(file_get_contents(__DIR__ . '/Models/countries.json'), true);
+        if (count($this->countries) == 0) {
+            $this->countries = json_decode(file_get_contents(__DIR__.'/Models/countries.json'), true);
         }
 
         //Return the countries
@@ -47,7 +46,7 @@ class Countries extends Model {
     }
 
     /**
-     * Returns one country
+     * Returns one country.
      *
      * @param string $id The country id
      *
@@ -56,11 +55,12 @@ class Countries extends Model {
     public function getOne($id)
     {
         $countries = $this->getCountries();
+
         return $countries[$id];
     }
 
     /**
-     * Returns a list of countries
+     * Returns a list of countries.
      *
      * @param string sort
      *
@@ -72,7 +72,7 @@ class Countries extends Model {
         $countries = $this->getCountries();
 
         //Sorting
-        $validSorts = array(
+        $validSorts = [
             'capital',
             'citizenship',
             'country-code',
@@ -88,16 +88,16 @@ class Countries extends Model {
             'eea',
             'calling_code',
             'currency_symbol',
-            'flag'
-        );
+            'flag',
+        ];
 
-        if (!is_null($sort) && in_array($sort, $validSorts)){
-            uasort($countries, function($a, $b) use ($sort) {
-                if (!isset($a[$sort]) && !isset($b[$sort])){
+        if (!is_null($sort) && in_array($sort, $validSorts)) {
+            uasort($countries, function ($a, $b) use ($sort) {
+                if (!isset($a[$sort]) && !isset($b[$sort])) {
                     return 0;
-                } elseif (!isset($a[$sort])){
+                } elseif (!isset($a[$sort])) {
                     return -1;
-                } elseif (!isset($b[$sort])){
+                } elseif (!isset($b[$sort])) {
                     return 1;
                 } else {
                     return strcasecmp($a[$sort], $b[$sort]);
@@ -110,7 +110,7 @@ class Countries extends Model {
     }
 
     /**
-     * Returns a list of countries suitable to use with a select element in Laravelcollective\html
+     * Returns a list of countries suitable to use with a select element in Laravelcollective\html.
      *
      * @param string sort
      *
