@@ -9,8 +9,8 @@ use Illuminate\Support\ServiceProvider;
  *
  */ 
 
-class CountriesServiceProvider extends ServiceProvider {
-
+class CountriesServiceProvider extends ServiceProvider
+{
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -26,16 +26,12 @@ class CountriesServiceProvider extends ServiceProvider {
     public function boot()
     {
         // The publication files to publish
-        $this->publishes([__DIR__ . '/../../config/config.php' => $this->app->basePath() . DS . 'countries.php']);
+        $this->publishes([__DIR__ . '/../../config/config.php' => $this->app->basePath() . '/countries.php']);
 
         // Append the country settings
         $this->mergeConfigFrom(
             __DIR__ . '/../../config/config.php', 'countries'
         );
-        /*$this->app['config']['database.connections'] = array_merge(
-            $this->app['config']['database.connections'],
-            \Config::get('career.library.database.connections')
-        );*/
     }
         
     /**

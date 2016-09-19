@@ -15,6 +15,8 @@ class CountriesFacade extends Facade {
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'countries'; }
- 
+    protected static function getFacadeAccessor()
+    {
+        return 'countries';
+    }
 }
