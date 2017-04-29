@@ -25,12 +25,9 @@
         "basicit/lumen-vendor-publish": "^1.0"
     },
     "autoload" : {
-        "psr-0" : {
-            "Codedge\\Countries" : "src/"
-        },
-        "classmap" : [
-            "src/commands"
-        ]
+        "psr-4" : {
+            "Codedge\\Countries\\" : "src/"
+        }
     },
     "support" : {
         "source" : "https://github.com/codedge/lumen-countries",
