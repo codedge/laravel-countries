@@ -1,7 +1,9 @@
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Config;
+use Codedge\Countries\CountriesFacade as Countries;
 
-class CountriesSeeder extends Seeder {
-
+class CountriesSeeder extends Seeder
+{
     /**
      * Run the database seeds.
      *
@@ -10,12 +12,12 @@ class CountriesSeeder extends Seeder {
     public function run()
     {
         //Empty the countries table
-        DB::table(\Config::get('countries.table_name'))->delete();
+        DB::table(Config::get('countries.table_name'))->delete();
 
         //Get all of the countries
         $countries = Countries::getList();
         foreach ($countries as $countryId => $country){
-            DB::table(\Config::get('countries.table_name'))->insert(array(
+            DB::table(Config::get('countries.table_name'))->insert(array(
                 'id' => $countryId,
                 'capital' => ((isset($country['capital'])) ? $country['capital'] : null),
                 'citizenship' => ((isset($country['citizenship'])) ? $country['citizenship'] : null),

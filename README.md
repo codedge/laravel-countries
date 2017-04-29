@@ -5,8 +5,7 @@
 [![Total Downloads](https://poser.pugx.org/codedge/lumen-countries/downloads?format=flat-square)](https://packagist.org/packages/codedge/lumen-countries)
 [![License](https://poser.pugx.org/codedge/lumen-countries/license?format=flat-square)](https://packagist.org/packages/codedge/lumen-countries)
 
-
-Lumen Countries is a bundle for Lumen, providing ISO 3166_2, 3166_3, currency, capital and more for all countries. It is based on Laravel-Countries made by [webpatser](https://github.com/webpatser/laravel-countries) (Christoph Kempen).
+Lumen Countries is a bundle for Lumen 5.x, providing ISO 3166_2, 3166_3, currency, capital and more for all countries. It is based on Laravel-Countries made by [webpatser](https://github.com/webpatser/laravel-countries) (Christoph Kempen).
 
 ## Installation
 
@@ -29,14 +28,6 @@ Edit `bootstrap/app.php` and add the Service Provider `[1]`
 
 $app->register(Codedge\Countries\CountriesServiceProvider::class); // [1]
 ``` 
-
-and Facade/Alias `[2]`
-
-```php
-$app->withFacades();
-
-class_alias(Codedge\Countries\CountriesFacade::class, 'Countries'); // [2]
-```
 
 Also register the `vendor:publish` command in your `app/Console/Kernel.php`
 

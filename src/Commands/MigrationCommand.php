@@ -1,6 +1,6 @@
 <?php
 
-namespace Codedge\Countries;
+namespace Codedge\Countries\Commands;
 
 use Illuminate\Console\Command;
 
@@ -48,11 +48,6 @@ class MigrationCommand extends Command
             $this->info('Creating migration and seeder...');
             if ($this->createMigration('countries')) {
                 $this->line('');
-
-                $this->call('optimize', []);
-
-                $this->line('');
-
                 $this->info('Migration successfully created!');
             } else {
                 $this->error(
@@ -60,8 +55,6 @@ class MigrationCommand extends Command
                     ' within the app/database/migrations directory.'
                 );
             }
-
-            $this->line('');
         }
     }
 
@@ -96,6 +89,9 @@ class MigrationCommand extends Command
                 $migrationFile = str_replace('*', date('Y_m_d_His', strtotime('+'.$seconds.' seconds')), $migrationFile);
 
                 $fs = fopen($migrationFile, 'x');
+
+
+
                 if ($fs) {
                     $output = "<?php\n\n".$app['view']->make($outputFile)->with('table', 'countries')->render();
 

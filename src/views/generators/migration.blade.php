@@ -1,7 +1,8 @@
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Config;
 
-class SetupCountriesTable extends Migration {
-
+class SetupCountriesTable extends Migration
+{
 	/**
 	 * Run the migrations.
 	 *
@@ -10,7 +11,7 @@ class SetupCountriesTable extends Migration {
 	public function up()
 	{
 		// Creates the users table
-		Schema::create(\Config::get('countries.table_name'), function($table)
+		Schema::create(Config::get('countries.table_name'), function($table)
 		{		    
 		    $table->integer('id')->unsigned()->index();
 		    $table->string('capital', 255)->nullable();
@@ -41,7 +42,7 @@ class SetupCountriesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop(\Config::get('countries.table_name'));
+		Schema::drop(Config::get('countries.table_name'));
 	}
 
 }
