@@ -64,6 +64,12 @@ It will generate the `<timestamp>_setup_countries_table.php` migration and the `
 $this->call('CountriesSeeder'); 
 ```
 
+Update composer autoloader:
+
+```bash
+composer dump-autoload
+```
+
 You may now run the migration including the seed.
 ```bash
 $ php artisan migrate --seed
