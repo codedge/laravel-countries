@@ -13,7 +13,7 @@ class Countries extends Model
      * @var string
      *             Path to the directory containing countries data.
      */
-    protected $countries;
+    protected $countries = [];
 
     /**
      * @var string
@@ -27,6 +27,7 @@ class Countries extends Model
     public function __construct()
     {
         $this->table = config('countries.table_name');
+        $this->countries = [];
     }
 
     /**
